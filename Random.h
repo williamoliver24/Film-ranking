@@ -4,8 +4,6 @@
 #include <chrono>
 #include <random>
 
-// This header-only Random namespace implements a self-seeding Mersenne Twister
-// It can be included into as many code files as needed (The inline keyword avoids ODR violations)
 namespace Random
 {
 	inline std::mt19937 init()
@@ -20,8 +18,6 @@ namespace Random
 		return std::mt19937{ ss };
 	}
 
-	// Here's our std::mt19937 PRNG object
-	// The inline keyword also means we only have one global instance for our whole program
 	inline std::mt19937 mt{ init() };
 
 	// Generate a random number between [min, max] (inclusive)
